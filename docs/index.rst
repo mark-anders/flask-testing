@@ -241,6 +241,11 @@ The `nose`_ collector and test runner works also fine with Flask-Testing.
 Changes
 =======
 
+0.4.2-no-push (11.10.2015)
+------------------
+
+  * Commented out the ctx.push() and ctx.pop() statements in utils.py that caused contexts to be held across requests.
+  
 0.4.2 (24.07.2014)
 ------------------
 
