@@ -109,7 +109,7 @@ class TestCase(unittest.TestCase):
         self.client = self.app.test_client()
 
         self._ctx = self.app.test_request_context()
-        self._ctx.push()
+        # self._ctx.push()
 
         if not self.render_templates:
             # Monkey patch the original template render with a empty render
@@ -127,7 +127,7 @@ class TestCase(unittest.TestCase):
 
     def _post_teardown(self):
         if getattr(self, '_ctx', None) is not None:
-            self._ctx.pop()
+            # self._ctx.pop()
             del self._ctx
 
         if getattr(self, 'app', None) is not None:
@@ -353,14 +353,14 @@ class LiveServerTestCase(unittest.TestCase):
         self.app = self.create_app()
 
         # We need to create a context in order for extensions to catch up
-        self._ctx = self.app.test_request_context()
-        self._ctx.push()
+        # self._ctx = self.app.test_request_context()
+        # self._ctx.push()
 
         try:
             self._spawn_live_server()
             super(LiveServerTestCase, self).__call__(result)
         finally:
-            self._post_teardown()
+            # self._post_teardown()
             self._terminate_live_server()
 
     def get_server_url(self):
